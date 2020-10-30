@@ -41,25 +41,19 @@ class _MyHomePageState extends State<MyHomePage> {
             style: TextStyle(fontSize: 20),
           ),
           Center(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: 80,
-                minWidth: 200,
-              ),
-              child: SizedBox(
-                width: 200.0,
-                height: 80.0,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Colors.green, width: 2),
-                    borderRadius: BorderRadius.all(Radius.circular(100)),
-                  ),
-                  color: Colors.green,
-                  onPressed: () {},
-                  child: Text(
-                    "Nowa gra",
-                    style: TextStyle(fontSize: 20),
-                  ),
+            child: SizedBox(
+              width: 200.0,
+              height: 80.0,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.green, width: 2),
+                  borderRadius: BorderRadius.all(Radius.circular(100)),
+                ),
+                color: Colors.green,
+                onPressed: () {},
+                child: Text(
+                  "Nowa gra",
+                  style: TextStyle(fontSize: 20),
                 ),
               ),
             ),
