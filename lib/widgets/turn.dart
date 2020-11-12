@@ -26,8 +26,8 @@ class _Turn extends State<Turn> {
             CustomPaint(
               size: Size(25.0, 25.0),
               painter: widget.turn == 1
-                  ? CirclePainter(circlePaint)
-                  : CrossPainter(crossPaint),
+                  ? CirclePainter(1.0)
+                  : CrossPainter(1.0),
             )
           ])),
     );

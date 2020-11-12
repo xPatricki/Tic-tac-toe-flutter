@@ -7,18 +7,30 @@ class SingleBoxWidget extends StatelessWidget {
   final bool bottomBorder;
   final bool rightBorder;
   final Shape shape;
+  final Function onTap;
 
-  SingleBoxWidget({this.shape = Shape.EMPTY, this.bottomBorder = true, this.rightBorder = true});
+  SingleBoxWidget(
+      {this.shape = Shape.EMPTY,
+      this.bottomBorder = true,
+      this.rightBorder = true,
+      @required this.onTap});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(color: bottomBorder ? Colors.black : Colors.transparent, width: 3.0),
-            right: BorderSide(color: rightBorder ? Colors.black : Colors.transparent, width: 3.0),
-          )
+    return GestureDetector(
+      child: Container(
+        decoration: BoxDecoration(
+            border: Border(
+          bottom: BorderSide(
+              color: bottomBorder ? Colors.black : Colors.transparent,
+              width: 3.0),
+          right: BorderSide(
+              color: rightBorder ? Colors.black : Colors.transparent,
+              width: 3.0),
+        )),
+        child: ShapeWidget(shape: shape),
       ),
-      child: ShapeWidget(shape: shape),
+      onTap: onTap,
     );
   }
 }
