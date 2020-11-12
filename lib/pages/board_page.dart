@@ -16,7 +16,11 @@ class BoardPage extends StatelessWidget {
               crossAxisCount: 3,
               shrinkWrap: true,
               children: [
-                SingleBoxWidget(shape: Shape.EMPTY),
+                SingleBoxWidget(
+                    shape: Shape
+                        .EMPTY) /*onPressed: ()
+                {setState(())}*/
+                ,
                 SingleBoxWidget(shape: Shape.EMPTY),
                 SingleBoxWidget(shape: Shape.EMPTY, rightBorder: false),
                 SingleBoxWidget(shape: Shape.EMPTY),

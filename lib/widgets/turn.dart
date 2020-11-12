@@ -22,7 +22,7 @@ class _Turn extends State<Turn> {
           width: 35,
           height: 35,
           child: Row(children: <Widget>[
-            Text('Runda ', style: TextStyle(fontSize: 15)),
+            Text('Names turn ', style: TextStyle(fontSize: 15)),
             CustomPaint(
               size: Size(25.0, 25.0),
               painter: widget.turn == 1
