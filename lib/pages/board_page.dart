@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tictactoe/main.dart';
 import 'package:tictactoe/widgets/tic_tac_toe_single_box.dart';
 
 class BoardPage extends StatelessWidget {
@@ -15,18 +16,42 @@ class BoardPage extends StatelessWidget {
               crossAxisCount: 3,
               shrinkWrap: true,
               children: [
-                SingleBoxWidget(shape: Shape.X,),
-                SingleBoxWidget(shape: Shape.O),
+                SingleBoxWidget(shape: Shape.EMPTY),
+                SingleBoxWidget(shape: Shape.EMPTY),
                 SingleBoxWidget(shape: Shape.EMPTY, rightBorder: false),
-
-                SingleBoxWidget(shape: Shape.O),
-                SingleBoxWidget(shape: Shape.X),
-                SingleBoxWidget(shape: Shape.O, rightBorder: false),
-
-                SingleBoxWidget(shape: Shape.O, bottomBorder: false),
+                SingleBoxWidget(shape: Shape.EMPTY),
+                SingleBoxWidget(shape: Shape.EMPTY),
+                SingleBoxWidget(shape: Shape.EMPTY, rightBorder: false),
                 SingleBoxWidget(shape: Shape.EMPTY, bottomBorder: false),
-                SingleBoxWidget(shape: Shape.O, bottomBorder: false, rightBorder: false),
+                SingleBoxWidget(shape: Shape.EMPTY, bottomBorder: false),
+                SingleBoxWidget(
+                    shape: Shape.EMPTY,
+                    bottomBorder: false,
+                    rightBorder: false),
               ],
+            ),
+            Center(
+              child: SizedBox(
+                width: 200.0,
+                height: 80.0,
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.green, width: 2),
+                    borderRadius: BorderRadius.all(Radius.circular(100)),
+                  ),
+                  color: Colors.green,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyHomePage()),
+                    );
+                  },
+                  child: Text(
+                    "Go back",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
@@ -34,8 +59,3 @@ class BoardPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
