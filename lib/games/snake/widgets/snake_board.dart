@@ -19,9 +19,9 @@ class SnakeBoardWidget extends StatelessWidget {
   }
 
   Color _getColor(int i) {
-    if (boardValue == 0) { // check if value is just a board
+    if (boardValue(i) == 0) { // check if value is just a board
       return i.isOdd ? Color(0xFF34ba67) : Color(0xFF52dd87);
-    } else if (boardValue == 1) { // check if value is the head of snake
+    } else if (boardValue(i) == 1) { // check if value is the head of snake
       return Colors.blue;
     } else { // value is body of the snake
       return Colors.black;
