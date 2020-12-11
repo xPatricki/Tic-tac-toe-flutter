@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tictactoe/pages/board_page.dart';
+import 'package:tictactoe/games/snake/snake_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,40 +34,55 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text("Tic tac toe"),
+        title: Text("Gry"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Text(
-            "Kółko i krzyżyk",
-            style: TextStyle(fontSize: 20),
-          ),
-          Center(
-            child: SizedBox(
-              width: 200.0,
-              height: 80.0,
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.green, width: 2),
-                  borderRadius: BorderRadius.all(Radius.circular(100)),
-                ),
-                color: Colors.green,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => BoardPage()),
-                  );
-                },
-                child: Text(
-                  "Nowa gra",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
+      body: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CustomButton(
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => BoardPage())),
+              color: Colors.purple,
+              text: 'Kółko i krzyżyk',
+              textColor: Colors.white,
             ),
-          ),
-        ],
+            SizedBox(height: 16,),
+            CustomButton(
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SnakePage())),
+              color: Colors.pink,
+              text: 'Snake',
+              textColor: Colors.white,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final String text;
+  final Function onTap;
+  final Color color;
+  final Color textColor;
+
+  const CustomButton({Key key, @required this.text, @required this.onTap, this.color, this.textColor}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: 56,
+      child: RaisedButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(4)),
+        ),
+        color: color ?? Colors.blue,
+        onPressed: onTap,
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 20, color: textColor ?? Colors.black),
+        ),
       ),
     );
   }
