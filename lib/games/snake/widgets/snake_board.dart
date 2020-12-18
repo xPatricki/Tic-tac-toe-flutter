@@ -15,6 +15,7 @@ class SnakeBoardWidget extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 15,
       ),
+      shrinkWrap: true,
     );
   }
 
@@ -22,7 +23,9 @@ class SnakeBoardWidget extends StatelessWidget {
     if (boardValue(i) == 0) { // check if value is just a board
       return i.isOdd ? Color(0xFF34ba67) : Color(0xFF52dd87);
     } else if (boardValue(i) == 1) { // check if value is the head of snake
-      return Colors.blue;
+      return Colors.blueGrey;
+    } else if (boardValue(i) == -1) { // check if value is an apple
+      return Colors.red;
     } else { // value is body of the snake
       return Colors.black;
     }
