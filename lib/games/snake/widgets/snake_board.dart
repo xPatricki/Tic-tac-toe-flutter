@@ -11,6 +11,9 @@ class SnakeBoardWidget extends StatelessWidget {
       itemCount: board.length * board[0].length,
       itemBuilder: (context, i) => Container(
         color: _getColor(i),
+        child: boardValue(i) == -1
+            ? Image.asset('assets/apple.png')
+            : SizedBox.shrink(),
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 15,
@@ -20,17 +23,17 @@ class SnakeBoardWidget extends StatelessWidget {
   }
 
   Color _getColor(int i) {
-    if (boardValue(i) == 0) { // check if value is just a board
+    if (boardValue(i) == 0 || boardValue(i) == -1) {
+      // check if value is just a board
       return i.isOdd ? Color(0xFF34ba67) : Color(0xFF52dd87);
-    } else if (boardValue(i) == 1) { // check if value is the head of snake
+    } else if (boardValue(i) == 1) {
+      // check if value is the head of snake
       return Colors.blueGrey;
-    } else if (boardValue(i) == -1) { // check if value is an apple
-      return Colors.red;
-    } else { // value is body of the snake
+    } else {
+      // value is body of the snake
       return Colors.black;
     }
   }
 
   int boardValue(i) => board[(i / 15).floor()][(i - (i / 15).floor() * 15)];
-
 }
