@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tictactoe/games/saper/widgets/saper_page.dart';
 import 'package:tictactoe/pages/board_page.dart';
 import 'package:tictactoe/games/snake/snake_page.dart';
 
@@ -42,16 +43,30 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CustomButton(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => BoardPage())),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => BoardPage())),
               color: Colors.purple,
               text: 'Kółko i krzyżyk',
               textColor: Colors.white,
             ),
-            SizedBox(height: 16,),
+            SizedBox(
+              height: 16,
+            ),
             CustomButton(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SnakePage())),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SnakePage())),
               color: Colors.pink,
               text: 'Snake',
+              textColor: Colors.white,
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            CustomButton(
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SaperBoard())),
+              color: Colors.orange,
+              text: 'Saper',
               textColor: Colors.white,
             ),
           ],
@@ -67,7 +82,13 @@ class CustomButton extends StatelessWidget {
   final Color color;
   final Color textColor;
 
-  const CustomButton({Key key, @required this.text, @required this.onTap, this.color, this.textColor}) : super(key: key);
+  const CustomButton(
+      {Key key,
+      @required this.text,
+      @required this.onTap,
+      this.color,
+      this.textColor})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SizedBox(
